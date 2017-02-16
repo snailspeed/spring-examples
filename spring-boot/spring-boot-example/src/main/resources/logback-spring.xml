@@ -11,6 +11,19 @@
         </appender>
     </springProfile>
 
+    <springProfile name="qa">
+        <appender name="LOGFILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+            <File>log/server.log</File>
+            <rollingPolicy
+                    class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+                <FileNamePattern>log/server_%d{yyyy-MM-dd}.log.zip</FileNamePattern>
+            </rollingPolicy>
+            <layout class="ch.qos.logback.classic.PatternLayout">
+                <pattern>%date [%thread] %-5level %logger{80} - %msg%n</pattern>
+            </layout>
+        </appender>
+    </springProfile>
+
     <springProfile name="prod">
         <appender name="LOGFILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
             <File>log/server.log</File>

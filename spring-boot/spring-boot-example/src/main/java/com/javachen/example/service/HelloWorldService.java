@@ -5,14 +5,14 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 @Component
-@Profile({ "dev" })
-public class HelloWorldService implements MessageService{
+@Profile({"dev", "qa"})
+public class HelloWorldService implements MessageService {
 
-  @Value("${name:World}")
-  private String name;
+    @Value("${name:World}")
+    private String name;
 
-  public String getMessage() {
-    return "Hello " + this.name;
-  }
+    public String getMessage() {
+        return "Hello " + this.name;
+    }
 
 }
